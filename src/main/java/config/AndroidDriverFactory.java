@@ -21,7 +21,7 @@ public class AndroidDriverFactory {
         capabilities.setCapability("deviceName", "5981eeff0504");
         //  capabilities.setCapability("autoGrantPermissions", "true");
         // capabilities.setCapability("noReset", "true");
-        capabilities.setCapability("app", "C:\\Users\\mrn\\Desktop\\miejskibike\\miejski-bike-release-2.7.0-beta4.apk");
+        capabilities.setCapability("app", "C:\\Users\\mrn\\Desktop\\bike apk\\miejski-bike-release-2.8.0-beta1.apk");
 
         return capabilities;
     }
