@@ -21,6 +21,7 @@
             </includes>
         </configuration>
         </configuration>
+
         <!--<configuration>-->
             <!--<testFailureIgnore>true</testFailureIgnore>-->
             <!--&lt;!&ndash;<failIfNoTests>false</failIfNoTests>&ndash;&gt;-->
@@ -34,6 +35,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-junit4</artifactId>
+            <version>2.18.1</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
