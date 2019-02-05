@@ -9,10 +9,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M1</version>
-        <configuration>
-            <testFailureIgnore>true</testFailureIgnore>
-            <!--<failIfNoTests>false</failIfNoTests>-->
-        </configuration>
+        <!--<configuration>-->
+            <!--<testFailureIgnore>true</testFailureIgnore>-->
+            <!--&lt;!&ndash;<failIfNoTests>false</failIfNoTests>&ndash;&gt;-->
+        <!--</configuration>-->
     </plugin>
     </plugins>
     </build>
