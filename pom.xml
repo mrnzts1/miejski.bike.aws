@@ -16,7 +16,7 @@
             <include>**/*Test.java</include>
             <include>**/*Tests.java</include>
             <include>**/*TestCase.java</include>
-                <include>**/*feature</include>
+                <include>**/*.feature</include>
             </includes>
         </configuration>
         </configuration>
