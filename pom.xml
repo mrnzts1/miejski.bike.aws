@@ -11,7 +11,7 @@
         <version>2.21.0</version>
         <configuration>
             <testFailureIgnore>true</testFailureIgnore>
-            <failIfNoTests>false</failIfNoTests>
+            <!--<failIfNoTests>false</failIfNoTests>-->
         </configuration>
     </plugin>
     </plugins>
