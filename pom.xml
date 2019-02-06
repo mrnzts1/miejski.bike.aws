@@ -11,7 +11,7 @@
         <version>2.21.0</version>
         <configuration>
             <includes>
-                <include>**/*TestRunnerTest.java</include>
+                <include>**/*TestRunner.java</include>
             </includes>
             <!--<testFailureIgnore>true</testFailureIgnore>-->
             <!--<failIfNoTests>false</failIfNoTests>-->

@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         dryRun = false,
         glue = "steps" )
 
-public class TestRunnerTest {
+public class TestRunner {
 }
