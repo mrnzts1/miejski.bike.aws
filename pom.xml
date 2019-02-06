@@ -11,7 +11,7 @@
         <version>3.0.0-M1</version>
         <configuration>
             <includes>
-                <exclude>**/*TestRunner.java</exclude>
+                <exclude>**/*Runner.java</exclude>
             </includes>
             <!--<testFailureIgnore>true</testFailureIgnore>-->
             <!--<failIfNoTests>false</failIfNoTests>-->
