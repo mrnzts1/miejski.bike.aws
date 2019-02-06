@@ -10,7 +10,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.21.0</version>
         <configuration>
-            <testFailureIgnore>true</testFailureIgnore>
+            <includes>
+                <include>**/*TestRunnerTest.java</include>
+            </includes>
+            <!--<testFailureIgnore>true</testFailureIgnore>-->
             <!--<failIfNoTests>false</failIfNoTests>-->
         </configuration>
     </plugin>
@@ -75,6 +78,4 @@
     <groupId>nowy</groupId>
     <artifactId>miejski.bike</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-
 </project>

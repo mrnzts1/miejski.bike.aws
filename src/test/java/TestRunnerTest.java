@@ -2,6 +2,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
+@RunWith(Cucumber.class)
 @CucumberOptions( monochrome = true,
         features = "src/test/java/features/",
         format = { "pretty","html: cucumber-html-reports",
@@ -9,6 +10,5 @@ import org.junit.runner.RunWith;
         dryRun = false,
         glue = "steps" )
 
-@RunWith(Cucumber.class)
 public class TestRunnerTest {
 }
