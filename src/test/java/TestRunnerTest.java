@@ -1,4 +1,6 @@
 import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 @CucumberOptions( monochrome = true,
         features = "src/test/java/features/",
@@ -7,6 +9,6 @@ import cucumber.api.CucumberOptions;
         dryRun = false,
         glue = "steps" )
 
-
-public class TestRunner {
+@RunWith(Cucumber.class)
+public class TestRunnerTest {
 }
