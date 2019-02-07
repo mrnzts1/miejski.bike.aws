@@ -16,9 +16,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M1</version>
         <configuration>
-            <includes>
-                <exclude>**/*Runner.java</exclude>
-            </includes>
+            <printSummary>true</printSummary>
+            <!--<includes>-->
+                <!--<exclude>**/*Runner.java</exclude>-->
+            <!--</includes>-->
             <!--<testFailureIgnore>true</testFailureIgnore>-->
             <!--<failIfNoTests>false</failIfNoTests>-->
         </configuration>
