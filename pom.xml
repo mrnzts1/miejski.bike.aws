@@ -9,32 +9,32 @@
             <url>http://forplay.googlecode.com/svn/mavenrepo</url>
         </repository>
     </repositories>
-    <build>
-    <plugins>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M1</version>
-        <configuration>
-            <printSummary>true</printSummary>
-            <!--<includes>-->
-                <!--<exclude>**/*Runner.java</exclude>-->
-            <!--</includes>-->
-            <!--<testFailureIgnore>true</testFailureIgnore>-->
-            <!--<failIfNoTests>false</failIfNoTests>-->
-        </configuration>
-    </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-    </plugins>
-    </build>
+    <!--<build>-->
+    <!--<plugins>-->
+    <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-surefire-plugin</artifactId>-->
+        <!--<version>3.0.0-M1</version>-->
+        <!--<configuration>-->
+            <!--<printSummary>true</printSummary>-->
+            <!--&lt;!&ndash;<includes>&ndash;&gt;-->
+                <!--&lt;!&ndash;<exclude>**/*Runner.java</exclude>&ndash;&gt;-->
+            <!--&lt;!&ndash;</includes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<testFailureIgnore>true</testFailureIgnore>&ndash;&gt;-->
+            <!--&lt;!&ndash;<failIfNoTests>false</failIfNoTests>&ndash;&gt;-->
+        <!--</configuration>-->
+    <!--</plugin>-->
+        <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-compiler-plugin</artifactId>-->
+            <!--<version>3.5.1</version>-->
+            <!--<configuration>-->
+                <!--<source>1.8</source>-->
+                <!--<target>1.8</target>-->
+            <!--</configuration>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
+    <!--</build>-->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
