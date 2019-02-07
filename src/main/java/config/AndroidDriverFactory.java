@@ -34,7 +34,7 @@ public class AndroidDriverFactory {
     public static final String KEY = USERNAME + ":" + ACCESS_KEY;
     public static final String URL = "http://hub.testinium.io/wd/hub";
 
-    private static   DesiredCapabilities getCapabilities() throws MalformedURLException {
+    private static   DesiredCapabilities getCapabilities()  {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("key", KEY);
 
@@ -42,7 +42,7 @@ public class AndroidDriverFactory {
         capabilities.setCapability("platformName", "ANDROID");
         capabilities.setCapability(CapabilityType.BROWSER_NAME, "PIXEL_2");
         capabilities.setCapability(CapabilityType.VERSION, "8.1.0");
-        //capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
+        capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         capabilities.setCapability("deviceName", "PIXEL 2");
         capabilities.setCapability("app", "http://testinium-hub.s3.amazonaws.com/2461/automated-upload/miejski-bike-release-2.8.0-beta1-71f1872f.apk");
 
