@@ -44,7 +44,7 @@ public class AndroidDriverFactory {
         capabilities.setCapability(CapabilityType.VERSION, "6.0.1");
         capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         capabilities.setCapability("deviceName", "MI5");
-        capabilities.setCapability("app", "C:\\Users\\mrn\\Desktop\\bike apk\\miejski-bike-release-2.8.0-beta1.apk");
+        capabilities.setCapability("app", "miejski-bike-release-2.8.0-beta1.apk");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), capabilities);
 
