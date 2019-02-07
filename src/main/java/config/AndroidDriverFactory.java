@@ -40,11 +40,10 @@ public class AndroidDriverFactory {
 
         capabilities.setCapability(CapabilityType.PLATFORM, "ANDROID");
         capabilities.setCapability("platformName", "ANDROID");
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, "MI5");
-        capabilities.setCapability(CapabilityType.VERSION, "6.0.1");
+        capabilities.setCapability(CapabilityType.BROWSER_NAME, "PIXEL");
+        capabilities.setCapability(CapabilityType.VERSION, "8.0.0");
         capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
-        capabilities.setCapability("appWaitPackage", "10000");
-        capabilities.setCapability("deviceName", "MI5");
+        capabilities.setCapability("deviceName", "PIXEL");
         capabilities.setCapability("app", "http://testinium-hub.s3.amazonaws.com/2461/automated-upload/miejski-bike-release-2.8.0-beta1-71f1872f.apk");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), capabilities);
