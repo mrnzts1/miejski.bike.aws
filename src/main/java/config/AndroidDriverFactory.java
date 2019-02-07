@@ -38,7 +38,7 @@ public class AndroidDriverFactory {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("key", KEY);
 
-        //capabilities.setCapability(CapabilityType.PLATFORM, "ANDROID");
+        capabilities.setCapability(CapabilityType.PLATFORM, "ANDROID");
         capabilities.setCapability("platformName", "ANDROID");
         capabilities.setCapability(CapabilityType.BROWSER_NAME, "PIXEL_2");
         capabilities.setCapability(CapabilityType.VERSION, "8.1.0");
