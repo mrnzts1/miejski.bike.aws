@@ -34,25 +34,26 @@ public class AndroidDriverFactory {
     public static final String KEY = USERNAME + ":" + ACCESS_KEY;
     public static final String URL = "http://hub.testinium.io/wd/hub";
 
-    private static  DesiredCapabilities getCapabilities()  {
+    private static DesiredCapabilities getCapabilities()  {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("key", KEY);
 
         capabilities.setCapability(CapabilityType.PLATFORM, "ANDROID");
-        capabilities.setCapability("platformName", "ANDROID");
+//        capabilities.setCapability("platformName", "ANDROID");
         capabilities.setCapability(CapabilityType.BROWSER_NAME, "GALAXY_A7");
         capabilities.setCapability(CapabilityType.VERSION, "6.0.1");
         capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
         capabilities.setCapability("deviceName", "GALAXY A7");
         capabilities.setCapability("app", "http://testinium-hub.s3.amazonaws.com/2461/automated-upload/miejski-bike-release-2.8.0-beta1-71f1872f.apk");
 
-       // WebDriver driver = new RemoteWebDriver(new URL(URL), capabilities);
+      //  WebDriver driver = new RemoteWebDriver(new URL(URL), capabilities);
 
 
         return capabilities;
     }
 
     private AndroidDriverFactory() {}
+
 
     public static AndroidDriver getDriver() throws MalformedURLException {
 
