@@ -43,6 +43,7 @@ public class MapSteps {
                 .checkingMenuDrawerIsDisplayed()
                 .checkingStartRecordingButtonIsDisplayed()
                 .checkingLegendButtonIsDisplayed()
+                .checkingTrackingButtonIsDisplayed()
                 .checkingInformationIconIsDisplayed();
 
     }

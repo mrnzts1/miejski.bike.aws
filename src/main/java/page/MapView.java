@@ -42,6 +42,9 @@ public class MapView extends Page {
     @AndroidFindBy(id = "legend_button")
     protected MobileElement LEGEND_BUTTON;
 
+    @AndroidFindBy(id = "tracking_button")
+    protected MobileElement TRACKING_BUTTON;
+
     @AndroidFindBy(id = "attributionView")
     protected MobileElement INFORMATION_ICON;
 
@@ -111,6 +114,10 @@ public class MapView extends Page {
         assertTrue(LEGEND_BUTTON.isDisplayed());
         return this;
     }
+    public MapView checkingTrackingButtonIsDisplayed(){
+        assertTrue(TRACKING_BUTTON.isDisplayed());
+        return this;
+    }
     public MapView checkingInformationIconIsDisplayed() {
         assertTrue(INFORMATION_ICON.isDisplayed());
         return this;
@@ -150,15 +157,21 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView setLocationInWarsawCenter() throws Throwable{
-        Location location = new Location(52.228971, 21.0048278, 300);  //use html5
+    public MapView setLocation(double latitude, double longitude, double altitude) throws Throwable{
+        Location  location = new Location(latitude, longitude, altitude);
         getDriver().setLocation(location);
         return this;
     }
 
+    public MapView setLocationInWarsawCenter() throws Throwable{
+        setLocation(52.228971, 21.0048278, 300);
+        return this;
+    }
+
     public MapView setLocationOutOfWarsaw() throws Throwable{
-        Location location = new Location(52.6245461, 20.36986, 300);  //use html5
-        getDriver().setLocation(location);
+       // Location location = new Location(52.6245461, 20.36986, 300);  //use html5
+
+        setLocation(52.6245461, 20.36986, 300);
         return this;
     }
 

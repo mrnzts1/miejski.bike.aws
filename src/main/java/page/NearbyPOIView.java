@@ -1,6 +1,7 @@
 package page;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import static config.AndroidDriverFactory.getDriver;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import static org.junit.Assert.assertTrue;
 
 public class NearbyPOIView extends Page {
@@ -55,6 +57,12 @@ public class NearbyPOIView extends Page {
     @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Veturilo']"))
     protected MobileElement VETURILO;
 
+    @AndroidFindBy(id = "handle")
+    protected MobileElement POI_HANDLE;
+
+    @AndroidFindBy(id = "main_toolbar")
+    protected MobileElement MAIN_TOOLBAR;
+
     @AndroidFindBy(id = "title")
     protected MobileElement POI_TITLE;
 
@@ -72,6 +80,18 @@ public class NearbyPOIView extends Page {
 
     @AndroidFindBy(id = "pointTags")
     protected MobileElement POI_TAGS_ON_IBOMBO;
+
+    @AndroidFindBy(id = "typeMoreInfo")
+    protected MobileElement POI_MORE_INFO;
+
+    @AndroidFindBy(id = "actionEmail")
+    protected MobileElement POI_EMAIL;
+
+    @AndroidFindBy(id = "actionFacebook")
+    protected MobileElement POI_FACEBOOK;
+
+    @AndroidFindBy(id = "actionWebsite")
+    protected MobileElement POI_WEBSITE;
 
 
     public NearbyPOIView checkingIfAllCheckboxesAreSelected() {
@@ -132,19 +152,27 @@ public class NearbyPOIView extends Page {
         return this;
     }
 
-    public NearbyPOIView clickingIbomboPoi() {
+    public NearbyPOIView clickingIbomboPoi() throws Throwable {
         IBOMBO.click();
+        openingPOIdrawer();
         return this;
     }
-    public NearbyPOIView clickingVeturiloPoi() {
+    public NearbyPOIView clickingVeturiloPoi() throws Throwable {
         VETURILO.click();
+        openingPOIdrawer();
         return this;
     }
-    public NearbyPOIView clickingBicycleParkingPoi() {
+    public NearbyPOIView clickingBicycleParkingPoi() throws Throwable {
         BICYCLE_PARKING.click();
+        openingPOIdrawer();
         return this;
     }
 
+    public NearbyPOIView openingPOIdrawer()throws Throwable{
+        TouchAction action = new TouchAction((getDriver()));
+        action.longPress(element(POI_HANDLE)).moveTo(element(MAIN_TOOLBAR)).release().perform();
+        return this;
+    }
     //ALL POI
     public NearbyPOIView checkingIfPoiTitleOnPoiIsDisplayed(){
         assertTrue(POI_TITLE.isDisplayed());
@@ -167,7 +195,25 @@ public class NearbyPOIView extends Page {
         return this;
     }
     //All POI
-
+    public NearbyPOIView checkingIfPoiMoreInfoIsDisplayed(){
+        assertTrue(POI_MORE_INFO.isDisplayed());
+        return this;
+    }
+    //All POI
+    public NearbyPOIView checkingIfPoiFacebookIsDisplayed(){
+        assertTrue(POI_FACEBOOK.isDisplayed());
+        return this;
+    }
+    //All POI
+    public NearbyPOIView checkingIfPoiEmailIsDisplayed(){
+        assertTrue(POI_EMAIL.isDisplayed());
+        return this;
+    }
+    //All POI
+    public NearbyPOIView checkingIfPoiWebsiteIsDisplayed(){
+        assertTrue(POI_WEBSITE.isDisplayed());
+        return this;
+    }
     //VETURILO and PARKING ROWEROWY
     public NearbyPOIView checkingIfPoiCounterIsDisplayed(){
         assertTrue(POI_COUNTER.isDisplayed());

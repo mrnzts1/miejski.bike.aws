@@ -81,7 +81,11 @@ public class NearbyPOISteps {
                 .checkingIfPoiAddressOnPoiIsDisplayed()
                 .checkingIfReportIssueButtonOnPoiIsDisplayed()
                 .checkingIfPoiImageOnPoiIsDisplayed()
-                .checkingIfPoiTagsOnIbomboAreDisplayed();
+                .checkingIfPoiTagsOnIbomboAreDisplayed()
+                .checkingIfPoiMoreInfoIsDisplayed()
+                .checkingIfPoiFacebookIsDisplayed()
+                .checkingIfPoiEmailIsDisplayed()
+                .checkingIfPoiWebsiteIsDisplayed();
     }
     @Then("^All the elements on VETURILO POI are displayed")
     public void checkingIfAllTheElementsOnVeturiloAreDisplayed() throws Throwable{
@@ -90,7 +94,11 @@ public class NearbyPOISteps {
                 .checkingIfPoiAddressOnPoiIsDisplayed()
                 .checkingIfReportIssueButtonOnPoiIsDisplayed()
                 .checkingIfPoiImageOnPoiIsDisplayed()
-                .checkingIfPoiCounterIsDisplayed();
+                .checkingIfPoiCounterIsDisplayed()
+                .checkingIfPoiMoreInfoIsDisplayed()
+                .checkingIfPoiFacebookIsDisplayed()
+                .checkingIfPoiEmailIsDisplayed()
+                .checkingIfPoiWebsiteIsDisplayed();
     }
     @Then("^All the elements on BICYKLE PARKING POI are displayed")
     public void checkingIfAllTheElementsOnBicykleParkingAreDisplayed() throws Throwable{
@@ -99,6 +107,10 @@ public class NearbyPOISteps {
                 .checkingIfPoiAddressOnPoiIsDisplayed()
                 .checkingIfReportIssueButtonOnPoiIsDisplayed()
                 .checkingIfPoiImageOnPoiIsDisplayed()
-                .checkingIfPoiCounterIsDisplayed();
+                .checkingIfPoiCounterIsDisplayed()
+                .checkingIfPoiMoreInfoIsDisplayed()
+                .checkingIfPoiFacebookIsDisplayed()
+                .checkingIfPoiEmailIsDisplayed()
+                .checkingIfPoiWebsiteIsDisplayed();
     }
 }
