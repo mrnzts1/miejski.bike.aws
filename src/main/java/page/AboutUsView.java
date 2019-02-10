@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import java.net.MalformedURLException;
 
 import static config.AndroidDriverFactory.getDriver;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import static org.junit.Assert.assertTrue;
 
 public class AboutUsView extends Page {
@@ -62,7 +63,7 @@ public class AboutUsView extends Page {
     public AboutUsView checkingMariuszIsDisplayed() throws MalformedURLException{
 
         TouchAction action = new TouchAction((getDriver()));
-//        action.press(WOJCIECH).moveTo(MIEJSKI_BIKE_HEADER).perform();
+        action.press(element(WOJCIECH)).moveTo(element(MIEJSKI_BIKE_HEADER)).perform();
         assertTrue(MARIUSZ.isDisplayed());
         return this;
     }

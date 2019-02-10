@@ -1,14 +1,14 @@
 package page;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.net.MalformedURLException;
-
 import static config.AndroidDriverFactory.getDriver;
 import static org.junit.Assert.assertTrue;
 
@@ -26,6 +26,9 @@ public class MapView extends Page {
 
     @AndroidFindBy(xpath=("//android.widget.Button[@text='ZEZWÓL']"))
     protected MobileElement ALLOW_LOCATION_ACCESS;
+
+//    @AndroidFindBy(id = "permission_allow_button")
+//    protected MobileElement ALLOW_LOCATION_ACCESS;
 
     @AndroidFindBy(id = "permission_deny_button")
     protected MobileElement DENY_LOCATION_ACCESS;
@@ -90,7 +93,7 @@ public class MapView extends Page {
         // assertFalse(MENU_BUTTON.isDisplayed());
         return this;}
 
-    public MapView acceptingAccessToLocation() throws Throwable{
+    public MapView acceptingAccessToLocation(){
         ALLOW_LOCATION_ACCESS.click();
         return this;
     }
@@ -125,8 +128,10 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView clickingLegendButton(){
+    public MapView clickingLegendButton() throws Throwable{
         LEGEND_BUTTON.click();
+        TouchAction action = new TouchAction((getDriver()));
+        action.longPress(element(BIKEWAYS)).moveTo(element(INFORMATION_ICON)).release().perform();
         return this;
     }
     public MapView checkingIfAllElementsInLegendAreDisplayed(){
@@ -143,7 +148,6 @@ public class MapView extends Page {
         STOP_RECORDING_BUTTON.click();
         Thread.sleep(5000);
         return this;
-
     }
 
     public MapView setLocationInWarsawCenter() throws Throwable{

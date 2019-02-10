@@ -67,9 +67,6 @@ public class NearbyPOIView extends Page {
     @AndroidFindBy(id = "imageView")
     protected MobileElement POI_IMAGE;
 
-    @AndroidFindBy(id = "image")
-    protected MobileElement POI_IMAGE_ON_MAP;
-
     @AndroidFindBy(id = "counter")
     protected MobileElement POI_COUNTER;
 
@@ -170,10 +167,7 @@ public class NearbyPOIView extends Page {
         return this;
     }
     //All POI
-    public NearbyPOIView checkingIfPoiImageOnMapIsDisplayed(){
-        assertTrue(POI_IMAGE_ON_MAP.isDisplayed());
-        return this;
-    }
+
     //VETURILO and PARKING ROWEROWY
     public NearbyPOIView checkingIfPoiCounterIsDisplayed(){
         assertTrue(POI_COUNTER.isDisplayed());
