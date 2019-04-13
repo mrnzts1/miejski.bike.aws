@@ -1,37 +1,39 @@
 package page;
 
+import config.Actions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.junit.Assert;
+import org.testng.Assert;
 
 import java.net.MalformedURLException;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class SettingsView extends Page{
 
     public SettingsView() throws MalformedURLException {
         super();
     }
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Kolor aplikacji']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Application colors']"))
     protected MobileElement APPLICATIONS_COLORS;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Zachowaj ekran mapy włączony']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Keep map screen on']"))
     protected MobileElement KEEP_MAP_SCREEN_ON;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Punkty POI']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='POI spots']"))
     protected MobileElement POI_SPOTS;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Wersja aplikacji']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Application version']"))
     protected MobileElement APPLICATION_VERSION;
 
-    @AndroidFindBy (xpath = ("//android.widget.TextView[@text='Automatyczna zmiana']"))
+    @AndroidFindBy (xpath = ("//android.widget.TextView[@text='Auto change colors']"))
     protected MobileElement AUTO_CHANGE_COLORS;
 
     @AndroidFindBy(id = "switch_widget")
     protected MobileElement SWITCH_TOGGLE;
 
-    public SettingsView checkingIfDisableApplicationsColorsIsDisplayed() {
+    public SettingsView checkingIfDisableApplicationsColorsIsDisplayed()throws Throwable {
+        Actions.takeScreenshot("Settings opened...");
         assertTrue(APPLICATIONS_COLORS.isDisplayed());
         return this;
     }

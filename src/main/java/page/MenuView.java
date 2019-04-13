@@ -1,34 +1,36 @@
 package page;
 
+import config.Actions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+
 import java.net.MalformedURLException;
 
 
 public class MenuView extends Page {
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Mapa']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Map']"))
     protected MobileElement MAP;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Najbliższe POI']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Nearby POI']"))
     protected MobileElement NEARBY_POI;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Zapisane trasy']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Recorded traces']"))
     protected MobileElement RECORDED_TRACES;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Ustawienia']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Settings']"))
     protected MobileElement SETTINGS;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Oceń nas']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Rate us']"))
     protected MobileElement RATE_US;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Skontaktuj się']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Send feedback']"))
     protected MobileElement SEND_FEEDBACK;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='O nas']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='About us']"))
     protected MobileElement ABOUT_US;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Partnerzy']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Partners']"))
     protected MobileElement PARTNERS;
 
 
@@ -39,16 +41,19 @@ public class MenuView extends Page {
         MAP.click();
         return this;
     }
-    public MenuView clickingNearbyPOI() {
+    public MenuView clickingNearbyPOI()throws Throwable {
         NEARBY_POI.click();
+        Actions.takeScreenshot("Nearby POI opened...");
         return this;
     }
-    public MenuView clickingRecordedTraces() {
+    public MenuView clickingRecordedTraces()throws Throwable {
         RECORDED_TRACES.click();
+        Actions.takeScreenshot("Recorded traces clicked...");
         return this;
     }
-    public MenuView clickingSettings() {
+    public MenuView clickingSettings()throws Throwable {
         SETTINGS.click();
+        Actions.takeScreenshot("Settings clicked...");
         return this;
     }
     public MenuView clickingRateUs() {
@@ -60,10 +65,9 @@ public class MenuView extends Page {
         return this;
     }
 
-    public MenuView clickingAboutUS() {
+    public MenuView clickingAboutUS()throws Throwable {
         ABOUT_US.click();
-        //WebDriverWait wait = new WebDriverWait(getDriver(), 15);
-        //    getDriver().pressKeyCode(AndroidKeyCode.BACK);
+        Actions.takeScreenshot("About us clicked...");
         return this;
     }
 

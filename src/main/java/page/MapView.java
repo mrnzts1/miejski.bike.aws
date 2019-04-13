@@ -1,16 +1,17 @@
 package page;
 
+import config.Actions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import static io.appium.java_client.touch.offset.ElementOption.element;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.html5.Location;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
-import static config.AndroidDriverFactory.getDriver;
-import static org.junit.Assert.assertTrue;
+import static config.TestBase.getDriver;
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static org.testng.Assert.assertTrue;
 
 
 public class MapView extends Page {
@@ -24,14 +25,17 @@ public class MapView extends Page {
     @AndroidFindBy(id = "menu_button")
     protected MobileElement MENU_BUTTON;
 
-    @AndroidFindBy(xpath=("//android.widget.Button[@text='ZEZWÓL']"))
-    protected MobileElement ALLOW_LOCATION_ACCESS;
+    @AndroidFindBy(xpath=("//android.widget.Button[@text='ALLOW']"))
+    protected MobileElement ALLOW_LOCATION_ACCESS_1;
 
-//    @AndroidFindBy(id = "permission_allow_button")
-//    protected MobileElement ALLOW_LOCATION_ACCESS;
+    @AndroidFindBy(xpath=("//android.widget.Button[@text='Allow']"))
+    protected MobileElement ALLOW_LOCATION_ACCESS_2;
 
-    @AndroidFindBy(id = "permission_deny_button")
-    protected MobileElement DENY_LOCATION_ACCESS;
+    @AndroidFindBy(xpath=("//android.widget.Button[@text='DENY']"))
+    protected MobileElement DENY_LOCATION_ACCESS_1;
+
+    @AndroidFindBy(xpath=("//android.widget.Button[@text='Deny']"))
+    protected MobileElement DENY_LOCATION_ACCESS_2;
 
     @AndroidFindBy(id = "recording_start_button")
     protected MobileElement START_RECORDING_BUTTON;
@@ -48,29 +52,23 @@ public class MapView extends Page {
     @AndroidFindBy(id = "attributionView")
     protected MobileElement INFORMATION_ICON;
 
-    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Drogi rowerowe']"))
+    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Bikeways']"))
     protected MobileElement BIKEWAYS;
 
-    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Pasy rowerowe']"))
+    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Bike lanes']"))
     protected MobileElement BIKE_LANES;
 
-    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Kontraruch']"))
+    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Contraflow']"))
     protected MobileElement CONTRAFLOW;
 
-    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Inne']"))
+    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Others']"))
     protected MobileElement OTHER;
 
-    @AndroidFindBy(xpath=("//android.widget.TextView[@text='W budowie']"))
+    @AndroidFindBy(xpath=("//android.widget.TextView[@text='Under construction']"))
     protected MobileElement UNDER_CONSTRUCTION;
 
-//    @AndroidFindBy(xpath=("//android.widget.Toast[1]"))
-//    protected MobileElement TOAST;
-
-//    @AndroidFindBy(xpath=("//android.widget.Toast[2][@text='Włączono zapisywanie trasy']"))
-//    protected MobileElement TOAST;
-
-//    @AndroidFindBy(xpath=("//*[contains(@text,'Włączono zapisywanie trasy')]"))
-//    protected MobileElement TOAST;
+    @AndroidFindBy(id = "legendErrorAction")
+    protected MobileElement LEGEND_ERROR_ACTION;
 
     public MapView() throws MalformedURLException {
         super();
@@ -86,18 +84,42 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView acceptingAppConditionsIfAppears() {
+    public MapView acceptingAppConditionsIfAppears() throws Throwable{
+        Actions.takeScreenshot("Accepting...");
         OK_BUTTON.click();
         return this;
     }
 
     public MapView notAcceptingAppConditionsIfAppears(){
         CANCEL_BUTTON.click();
-        // assertFalse(MENU_BUTTON.isDisplayed());
         return this;}
 
-    public MapView acceptingAccessToLocation(){
-        ALLOW_LOCATION_ACCESS.click();
+    public MapView acceptingAccessToLocation() throws Throwable {
+        Actions.takeScreenshot("Accepting location...");
+        try {
+            ALLOW_LOCATION_ACCESS_1.click();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            ALLOW_LOCATION_ACCESS_2.click();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return this;
+    }
+    public MapView denyingAccessToLocation() throws Throwable {
+        Actions.takeScreenshot("Denying location...");
+        try {
+            DENY_LOCATION_ACCESS_1.click();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            DENY_LOCATION_ACCESS_2.click();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return this;
     }
 
@@ -110,7 +132,9 @@ public class MapView extends Page {
         assertTrue(START_RECORDING_BUTTON.isDisplayed());
         return this;
     }
-    public MapView checkingLegendButtonIsDisplayed(){
+    public MapView checkingLegendButtonIsDisplayed() throws MalformedURLException{
+        WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+        wait.until(ExpectedConditions.elementToBeClickable(LEGEND_BUTTON));
         assertTrue(LEGEND_BUTTON.isDisplayed());
         return this;
     }
@@ -122,23 +146,26 @@ public class MapView extends Page {
         assertTrue(INFORMATION_ICON.isDisplayed());
         return this;
     }
-    public MapView clickingMenuDrawer() throws MalformedURLException {
+    public MapView clickingMenuDrawer() throws Throwable {
         WebDriverWait wait = new WebDriverWait(getDriver(), 15);
         wait.until(ExpectedConditions.elementToBeClickable(MENU_BUTTON));
         MENU_BUTTON.click();
-        return this;
-    }
-
-    public MapView checkingMenuDrawerIsNotDisplayed() throws MalformedURLException{
-        //  assertFalse(MENU_BUTTON.isDisplayed());
-        //  getDriver().startActivity(new Activity("pl.wtopolski.android.warsawbikepath", "bike.miejski.map.view.MapActivity"));
+        Actions.takeScreenshot("Menu clicked...");
         return this;
     }
 
     public MapView clickingLegendButton() throws Throwable{
         LEGEND_BUTTON.click();
+        Actions.takeScreenshot("Legend clicked...");
+        try {
+            LEGEND_ERROR_ACTION.click();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         TouchAction action = new TouchAction((getDriver()));
         action.longPress(element(BIKEWAYS)).moveTo(element(INFORMATION_ICON)).release().perform();
+        Actions.takeScreenshot("Legend expanded...");
         return this;
     }
     public MapView checkingIfAllElementsInLegendAreDisplayed(){
@@ -152,6 +179,7 @@ public class MapView extends Page {
 
     public MapView recordingTrace()throws Throwable{
         START_RECORDING_BUTTON.click();
+        Actions.takeScreenshot("Recording started...");
         STOP_RECORDING_BUTTON.click();
         Thread.sleep(5000);
         return this;
@@ -170,7 +198,6 @@ public class MapView extends Page {
 
     public MapView setLocationOutOfWarsaw() throws Throwable{
        // Location location = new Location(52.6245461, 20.36986, 300);  //use html5
-
         setLocation(52.6245461, 20.36986, 300);
         return this;
     }

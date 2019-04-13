@@ -1,17 +1,18 @@
 package page;
 
+import config.Actions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.junit.Assert;
+import org.testng.Assert;
 
 import java.net.MalformedURLException;
 import java.util.List;
 
-import static config.AndroidDriverFactory.getDriver;
+import static config.TestBase.getDriver;
 import static io.appium.java_client.touch.offset.ElementOption.element;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class NearbyPOIView extends Page {
 
@@ -33,16 +34,16 @@ public class NearbyPOIView extends Page {
     @AndroidFindBy(id = "around_location")
     protected MobileElement AROUND_LOCATION;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Wokół środka ekranu']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Around screen center']"))
     protected MobileElement NEARBY_POI_AROUND_SCREEN;
 
     @AndroidFindBy(id = "checkbox")
     protected List<MobileElement> ALL_CHECKBOXES;
 
-    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Wokół pozycji GPS']"))
+    @AndroidFindBy(xpath = ("//android.widget.CheckedTextView[@text='Around GPS position']"))
     protected MobileElement NEARBY_POI_AROUND_GPS_RADIO_BUTTON;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Wokół pozycji GPS']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Around GPS position']"))
     protected MobileElement NEARBY_POI_AROUND_GPS;
 
     @AndroidFindBy(id = "poiListEmptyMessage")
@@ -51,7 +52,7 @@ public class NearbyPOIView extends Page {
     @AndroidFindBy(xpath = ("//android.widget.TextView[@text='IBOMBO']"))
     protected MobileElement IBOMBO;
 
-    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Parking rowerowy']"))
+    @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Bicycle parking']"))
     protected MobileElement BICYCLE_PARKING;
 
     @AndroidFindBy(xpath = ("//android.widget.TextView[@text='Veturilo']"))
@@ -100,8 +101,9 @@ public class NearbyPOIView extends Page {
         }
         return this;
     }
-    public NearbyPOIView checkingIfNearbyPoiListIsDisplayed(){
+    public NearbyPOIView checkingIfNearbyPoiListIsDisplayed() throws Throwable{
         assertTrue(NEARBY_POI_LIST.isDisplayed());
+        Actions.takeScreenshot("Opening Nearby POI list...");
         return this;
     }
     public NearbyPOIView checkingIfPoiIconIsDisplayed(){
@@ -120,20 +122,23 @@ public class NearbyPOIView extends Page {
         assertTrue(FILTER.isDisplayed());
         return this;
     }
-    public NearbyPOIView clickingFilterIcon(){
+    public NearbyPOIView clickingFilterIcon()throws Throwable{
         FILTER.click();
+        Actions.takeScreenshot("Filter clicked...");
         return this;
     }
     public NearbyPOIView checkingIfNearbyPOISAroundScreenIsDisplayed() {
         assertTrue(NEARBY_POI_AROUND_SCREEN.isDisplayed());
         return this;
     }
-    public NearbyPOIView clickingNearbyPOIAroundScreen() {
+    public NearbyPOIView clickingNearbyPOIAroundScreen()throws Throwable {
         NEARBY_POI_AROUND_SCREEN.click();
+        Actions.takeScreenshot("Nearby POI around screen clicked...");
         return this;
     }
-    public NearbyPOIView selectingNearbyPOIAroundGPSRadioButton(){
+    public NearbyPOIView selectingNearbyPOIAroundGPSRadioButton()throws Throwable{
         NEARBY_POI_AROUND_GPS_RADIO_BUTTON.click();
+        Actions.takeScreenshot("Radio buttons...");
         return this;
     }
     public NearbyPOIView checkingIfNearbyPOIIsChangedToAroundGPS() {
@@ -147,24 +152,31 @@ public class NearbyPOIView extends Page {
         getDriver().pressKeyCode(AndroidKeyCode.BACK);
         return this;
     }
-    public NearbyPOIView checkingIfEmptyListMessageIsDisplayed() {
+    public NearbyPOIView checkingIfEmptyListMessageIsDisplayed()throws Throwable {
         assertTrue(POI_LIST_EMPTY_MESSAGE.isDisplayed());
+        Actions.takeScreenshot("Empty list message is displaying...");
         return this;
     }
 
     public NearbyPOIView clickingIbomboPoi() throws Throwable {
         IBOMBO.click();
+        Actions.takeScreenshot("IBOMBO clicked...");
         openingPOIdrawer();
+        Actions.takeScreenshot("IBOMBO opened...");
         return this;
     }
     public NearbyPOIView clickingVeturiloPoi() throws Throwable {
         VETURILO.click();
+        Actions.takeScreenshot("VETURILO clicked...");
         openingPOIdrawer();
+        Actions.takeScreenshot("VETURILO opened...");
         return this;
     }
     public NearbyPOIView clickingBicycleParkingPoi() throws Throwable {
         BICYCLE_PARKING.click();
+        Actions.takeScreenshot("Bicycle parking clicked...");
         openingPOIdrawer();
+        Actions.takeScreenshot("Bicycle parking opened...");
         return this;
     }
 

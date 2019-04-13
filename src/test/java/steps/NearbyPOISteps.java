@@ -1,12 +1,19 @@
 package steps;
 
+import config.TestBase;
+import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import page.MapView;
 import page.MenuView;
 import page.NearbyPOIView;
 
-public class NearbyPOISteps {
+@CucumberOptions(strict = true,
+        monochrome = true,
+        features = "classpath:NearbyPOITest",
+        plugin = {"pretty"})
+
+public class NearbyPOISteps extends TestBase {
 
     @When("^User goes to 'Nearby POI'")
     public void goingToNearbyPOI() throws Throwable {
@@ -33,7 +40,7 @@ public class NearbyPOISteps {
                 .clickingFilterIcon()
                 .checkingIfNearbyPOISAroundScreenIsDisplayed();
     }
-    @When("^User change ‘Around screen center’ to ‘Around GPS position’")
+    @When("^User change 'Around screen center' to 'Around GPS position'")
     public void changingAroundScreenCenterToAroundGPSPosition() throws Throwable{
         new NearbyPOIView()
                 .clickingFilterIcon()

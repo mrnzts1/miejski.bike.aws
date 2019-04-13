@@ -1,14 +1,15 @@
 package page;
 
+import config.Actions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.net.MalformedURLException;
 
-import static config.AndroidDriverFactory.getDriver;
+import static config.TestBase.getDriver;
 import static io.appium.java_client.touch.offset.ElementOption.element;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class AboutUsView extends Page {
 
@@ -40,7 +41,8 @@ public class AboutUsView extends Page {
         super();
     }
 
-    public AboutUsView checkingMaciejIsDisplayed(){
+    public AboutUsView checkingMaciejIsDisplayed() throws Throwable{
+        Actions.takeScreenshot("About us opened...");
         assertTrue(MACIEJ.isDisplayed());
         return this;
     }
@@ -60,10 +62,10 @@ public class AboutUsView extends Page {
         return this;
     }
 
-    public AboutUsView checkingMariuszIsDisplayed() throws MalformedURLException{
-
+    public AboutUsView checkingMariuszIsDisplayed() throws Throwable{
         TouchAction action = new TouchAction((getDriver()));
         action.press(element(WOJCIECH)).moveTo(element(MIEJSKI_BIKE_HEADER)).perform();
+        Actions.takeScreenshot("About us scrolled...");
         assertTrue(MARIUSZ.isDisplayed());
         return this;
     }

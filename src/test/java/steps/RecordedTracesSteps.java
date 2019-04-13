@@ -1,12 +1,19 @@
 package steps;
 
+import config.TestBase;
+import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import page.MapView;
 import page.MenuView;
 import page.RecordedTraces;
 
-public class RecordedTracesSteps {
+@CucumberOptions(strict = true,
+        monochrome = true,
+        features = "classpath:RecordedTracesTest",
+        plugin = {"pretty"})
+
+public class RecordedTracesSteps extends TestBase {
 
     @When("User goes to Recorded Traces")
     public void goingToRecordedTraces() throws Throwable{
