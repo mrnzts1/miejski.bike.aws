@@ -8,6 +8,8 @@ import page.MapView;
 import page.MenuView;
 import page.NearbyPOIView;
 
+import java.net.MalformedURLException;
+
 @CucumberOptions(strict = true,
         monochrome = true,
         features = "classpath:NearbyPOITest",
@@ -16,7 +18,7 @@ import page.NearbyPOIView;
 public class NearbyPOISteps extends TestBase {
 
     @When("^User goes to 'Nearby POI'")
-    public void goingToNearbyPOI() throws Throwable {
+    public void goingToNearbyPOI() throws MalformedURLException {
         new MapView()
                 .clickingMenuDrawer();
 
@@ -25,7 +27,7 @@ public class NearbyPOISteps extends TestBase {
     }
 
     @Then("^Nearby POI are displayed")
-    public void checkingIfAllElementsAreDisplayed() throws Throwable {
+    public void checkingIfAllElementsAreDisplayed() throws MalformedURLException {
         new NearbyPOIView()
                 .checkingIfNearbyPoiListIsDisplayed()
                 .checkingIfPoiIconIsDisplayed()
@@ -35,13 +37,13 @@ public class NearbyPOISteps extends TestBase {
     }
 
     @Then("^Nearby POI around screen center are displayed")
-    public void checkingIfNearbyPOISAroundScreenIsDisplayed() throws Throwable{
+    public void checkingIfNearbyPOISAroundScreenIsDisplayed() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingFilterIcon()
                 .checkingIfNearbyPOISAroundScreenIsDisplayed();
     }
     @When("^User change 'Around screen center' to 'Around GPS position'")
-    public void changingAroundScreenCenterToAroundGPSPosition() throws Throwable{
+    public void changingAroundScreenCenterToAroundGPSPosition() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingFilterIcon()
                 .clickingNearbyPOIAroundScreen()
@@ -49,40 +51,40 @@ public class NearbyPOISteps extends TestBase {
     }
 
     @Then("^Nearby POI around GPS position are displayed")
-    public void checkingIfNearbyPOIIsChangedToAroundGPS() throws Throwable{
+    public void checkingIfNearbyPOIIsChangedToAroundGPS() throws MalformedURLException{
         new NearbyPOIView()
                 .checkingIfNearbyPOIIsChangedToAroundGPS();
     }
     @When("^User unselecting all filter checkboxes")
-    public void unselectingAllFilterCheckboxes() throws Throwable{
+    public void unselectingAllFilterCheckboxes() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingFilterIcon()
                 .unselectingAllCheckboxes();
     }
     @Then("^An empty POI list is displayed")
-    public void checkingIfNothingToDisplayIsVisible() throws Throwable{
+    public void checkingIfNothingToDisplayIsVisible() throws MalformedURLException{
         new NearbyPOIView()
                 .checkingIfEmptyListMessageIsDisplayed();
     }
     @When("^User clicks IBOMBO POI")
-    public void goingToIbomboPoi() throws Throwable{
+    public void goingToIbomboPoi() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingIbomboPoi();
     }
     @When("^User clicks VETURILO POI")
-    public void goingToVeturiloPoi() throws Throwable{
+    public void goingToVeturiloPoi() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingVeturiloPoi();
     }
 
     @When("^User clicks BICYCLE PARKING POI")
-    public void goingToBicycleParkingPoi() throws Throwable{
+    public void goingToBicycleParkingPoi() throws MalformedURLException{
         new NearbyPOIView()
                 .clickingBicycleParkingPoi();
     }
 
     @Then("^All the elements on IBOMBO POI are displayed")
-    public void checkingIfAllTheElementsOnIbomboAreDisplayed() throws Throwable{
+    public void checkingIfAllTheElementsOnIbomboAreDisplayed() throws MalformedURLException{
         new NearbyPOIView()
                 .checkingIfPoiTitleOnPoiIsDisplayed()
                 .checkingIfPoiAddressOnPoiIsDisplayed()
@@ -95,7 +97,7 @@ public class NearbyPOISteps extends TestBase {
                 .checkingIfPoiWebsiteIsDisplayed();
     }
     @Then("^All the elements on VETURILO POI are displayed")
-    public void checkingIfAllTheElementsOnVeturiloAreDisplayed() throws Throwable{
+    public void checkingIfAllTheElementsOnVeturiloAreDisplayed() throws MalformedURLException{
         new NearbyPOIView()
                 .checkingIfPoiTitleOnPoiIsDisplayed()
                 .checkingIfPoiAddressOnPoiIsDisplayed()
@@ -108,7 +110,7 @@ public class NearbyPOISteps extends TestBase {
                 .checkingIfPoiWebsiteIsDisplayed();
     }
     @Then("^All the elements on BICYKLE PARKING POI are displayed")
-    public void checkingIfAllTheElementsOnBicykleParkingAreDisplayed() throws Throwable{
+    public void checkingIfAllTheElementsOnBicykleParkingAreDisplayed() throws MalformedURLException{
         new NearbyPOIView()
                 .checkingIfPoiTitleOnPoiIsDisplayed()
                 .checkingIfPoiAddressOnPoiIsDisplayed()

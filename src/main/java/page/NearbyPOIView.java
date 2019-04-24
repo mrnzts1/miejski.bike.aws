@@ -101,7 +101,7 @@ public class NearbyPOIView extends Page {
         }
         return this;
     }
-    public NearbyPOIView checkingIfNearbyPoiListIsDisplayed() throws Throwable{
+    public NearbyPOIView checkingIfNearbyPoiListIsDisplayed() throws MalformedURLException{
         assertTrue(NEARBY_POI_LIST.isDisplayed());
         Actions.takeScreenshot("Opening Nearby POI list...");
         return this;
@@ -122,7 +122,7 @@ public class NearbyPOIView extends Page {
         assertTrue(FILTER.isDisplayed());
         return this;
     }
-    public NearbyPOIView clickingFilterIcon()throws Throwable{
+    public NearbyPOIView clickingFilterIcon()throws MalformedURLException{
         FILTER.click();
         Actions.takeScreenshot("Filter clicked...");
         return this;
@@ -131,12 +131,12 @@ public class NearbyPOIView extends Page {
         assertTrue(NEARBY_POI_AROUND_SCREEN.isDisplayed());
         return this;
     }
-    public NearbyPOIView clickingNearbyPOIAroundScreen()throws Throwable {
+    public NearbyPOIView clickingNearbyPOIAroundScreen()throws MalformedURLException {
         NEARBY_POI_AROUND_SCREEN.click();
         Actions.takeScreenshot("Nearby POI around screen clicked...");
         return this;
     }
-    public NearbyPOIView selectingNearbyPOIAroundGPSRadioButton()throws Throwable{
+    public NearbyPOIView selectingNearbyPOIAroundGPSRadioButton()throws MalformedURLException{
         NEARBY_POI_AROUND_GPS_RADIO_BUTTON.click();
         Actions.takeScreenshot("Radio buttons...");
         return this;
@@ -152,27 +152,27 @@ public class NearbyPOIView extends Page {
         getDriver().pressKeyCode(AndroidKeyCode.BACK);
         return this;
     }
-    public NearbyPOIView checkingIfEmptyListMessageIsDisplayed()throws Throwable {
+    public NearbyPOIView checkingIfEmptyListMessageIsDisplayed()throws MalformedURLException {
         assertTrue(POI_LIST_EMPTY_MESSAGE.isDisplayed());
         Actions.takeScreenshot("Empty list message is displaying...");
         return this;
     }
 
-    public NearbyPOIView clickingIbomboPoi() throws Throwable {
+    public NearbyPOIView clickingIbomboPoi() throws MalformedURLException {
         IBOMBO.click();
         Actions.takeScreenshot("IBOMBO clicked...");
         openingPOIdrawer();
         Actions.takeScreenshot("IBOMBO opened...");
         return this;
     }
-    public NearbyPOIView clickingVeturiloPoi() throws Throwable {
+    public NearbyPOIView clickingVeturiloPoi() throws MalformedURLException {
         VETURILO.click();
         Actions.takeScreenshot("VETURILO clicked...");
         openingPOIdrawer();
         Actions.takeScreenshot("VETURILO opened...");
         return this;
     }
-    public NearbyPOIView clickingBicycleParkingPoi() throws Throwable {
+    public NearbyPOIView clickingBicycleParkingPoi() throws MalformedURLException {
         BICYCLE_PARKING.click();
         Actions.takeScreenshot("Bicycle parking clicked...");
         openingPOIdrawer();
@@ -180,7 +180,7 @@ public class NearbyPOIView extends Page {
         return this;
     }
 
-    public NearbyPOIView openingPOIdrawer()throws Throwable{
+    public NearbyPOIView openingPOIdrawer()throws MalformedURLException{
         TouchAction action = new TouchAction((getDriver()));
         action.longPress(element(POI_HANDLE)).moveTo(element(MAIN_TOOLBAR)).release().perform();
         return this;

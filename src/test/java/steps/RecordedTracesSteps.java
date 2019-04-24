@@ -8,6 +8,8 @@ import page.MapView;
 import page.MenuView;
 import page.RecordedTraces;
 
+import java.net.MalformedURLException;
+
 @CucumberOptions(strict = true,
         monochrome = true,
         features = "classpath:RecordedTracesTest",
@@ -16,7 +18,7 @@ import page.RecordedTraces;
 public class RecordedTracesSteps extends TestBase {
 
     @When("User goes to Recorded Traces")
-    public void goingToRecordedTraces() throws Throwable{
+    public void goingToRecordedTraces() throws MalformedURLException {
         new MapView()
                 .clickingMenuDrawer();
 
@@ -24,7 +26,7 @@ public class RecordedTracesSteps extends TestBase {
                 .clickingRecordedTraces();
     }
     @Then("^User can see information that there are no recorded traces")
-    public void checkingThereAreNoRecordedTraces() throws Throwable{
+    public void checkingThereAreNoRecordedTraces() throws MalformedURLException{
         new RecordedTraces()
                 .checkingEmptyDescriptionIsDisplayed();
     }

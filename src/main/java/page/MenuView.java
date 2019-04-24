@@ -41,17 +41,17 @@ public class MenuView extends Page {
         MAP.click();
         return this;
     }
-    public MenuView clickingNearbyPOI()throws Throwable {
+    public MenuView clickingNearbyPOI()throws MalformedURLException {
         NEARBY_POI.click();
         Actions.takeScreenshot("Nearby POI opened...");
         return this;
     }
-    public MenuView clickingRecordedTraces()throws Throwable {
+    public MenuView clickingRecordedTraces()throws MalformedURLException {
         RECORDED_TRACES.click();
         Actions.takeScreenshot("Recorded traces clicked...");
         return this;
     }
-    public MenuView clickingSettings()throws Throwable {
+    public MenuView clickingSettings()throws MalformedURLException {
         SETTINGS.click();
         Actions.takeScreenshot("Settings clicked...");
         return this;
@@ -65,7 +65,7 @@ public class MenuView extends Page {
         return this;
     }
 
-    public MenuView clickingAboutUS()throws Throwable {
+    public MenuView clickingAboutUS()throws MalformedURLException {
         ABOUT_US.click();
         Actions.takeScreenshot("About us clicked...");
         return this;

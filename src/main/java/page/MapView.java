@@ -74,17 +74,17 @@ public class MapView extends Page {
         super();
     }
 
-    public MapView rotatingDeviceToLandscape() throws Throwable{
+    public MapView rotatingDeviceToLandscape() throws MalformedURLException{
         getDriver().rotate(ScreenOrientation.LANDSCAPE);
         return this;
     }
 
-    public MapView rotatingDeviceToPortrait() throws Throwable{
+    public MapView rotatingDeviceToPortrait() throws MalformedURLException{
         getDriver().rotate(ScreenOrientation.PORTRAIT);
         return this;
     }
 
-    public MapView acceptingAppConditionsIfAppears() throws Throwable{
+    public MapView acceptingAppConditionsIfAppears() throws MalformedURLException{
         Actions.takeScreenshot("Accepting...");
         OK_BUTTON.click();
         return this;
@@ -94,7 +94,7 @@ public class MapView extends Page {
         CANCEL_BUTTON.click();
         return this;}
 
-    public MapView acceptingAccessToLocation() throws Throwable {
+    public MapView acceptingAccessToLocation() throws MalformedURLException {
         Actions.takeScreenshot("Accepting location...");
         try {
             ALLOW_LOCATION_ACCESS_1.click();
@@ -108,7 +108,7 @@ public class MapView extends Page {
         }
         return this;
     }
-    public MapView denyingAccessToLocation() throws Throwable {
+    public MapView denyingAccessToLocation() throws MalformedURLException {
         Actions.takeScreenshot("Denying location...");
         try {
             DENY_LOCATION_ACCESS_1.click();
@@ -146,7 +146,7 @@ public class MapView extends Page {
         assertTrue(INFORMATION_ICON.isDisplayed());
         return this;
     }
-    public MapView clickingMenuDrawer() throws Throwable {
+    public MapView clickingMenuDrawer() throws MalformedURLException {
         WebDriverWait wait = new WebDriverWait(getDriver(), 15);
         wait.until(ExpectedConditions.elementToBeClickable(MENU_BUTTON));
         MENU_BUTTON.click();
@@ -154,7 +154,7 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView clickingLegendButton() throws Throwable{
+    public MapView clickingLegendButton() throws MalformedURLException{
         LEGEND_BUTTON.click();
         Actions.takeScreenshot("Legend clicked...");
         try {
@@ -177,7 +177,7 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView recordingTrace()throws Throwable{
+    public MapView recordingTrace()throws InterruptedException, MalformedURLException{
         START_RECORDING_BUTTON.click();
         Actions.takeScreenshot("Recording started...");
         STOP_RECORDING_BUTTON.click();
@@ -185,18 +185,18 @@ public class MapView extends Page {
         return this;
     }
 
-    public MapView setLocation(double latitude, double longitude, double altitude) throws Throwable{
+    public MapView setLocation(double latitude, double longitude, double altitude) throws MalformedURLException{
         Location  location = new Location(latitude, longitude, altitude);
         getDriver().setLocation(location);
         return this;
     }
 
-    public MapView setLocationInWarsawCenter() throws Throwable{
+    public MapView setLocationInWarsawCenter() throws MalformedURLException{
         setLocation(52.228971, 21.0048278, 300);
         return this;
     }
 
-    public MapView setLocationOutOfWarsaw() throws Throwable{
+    public MapView setLocationOutOfWarsaw() throws MalformedURLException{
        // Location location = new Location(52.6245461, 20.36986, 300);  //use html5
         setLocation(52.6245461, 20.36986, 300);
         return this;

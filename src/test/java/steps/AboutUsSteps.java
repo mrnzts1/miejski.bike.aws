@@ -9,6 +9,8 @@ import page.AboutUsView;
 import page.MapView;
 import page.MenuView;
 
+import java.net.MalformedURLException;
+
 @CucumberOptions(strict = true,
         monochrome = true,
         features = "classpath:AboutUsTest",
@@ -18,7 +20,7 @@ public class AboutUsSteps extends TestBase {
 
 
     @When("User goes to About Us view")
-    public void goingToAboutUs() throws Throwable {
+    public void goingToAboutUs() throws MalformedURLException {
         new MapView()
                 .clickingMenuDrawer();
 
@@ -26,7 +28,7 @@ public class AboutUsSteps extends TestBase {
                 .clickingAboutUS();
     }
     @Then("^All team is displayed")
-    public void checkingAllTeamIsDisplayed() throws Throwable{
+    public void checkingAllTeamIsDisplayed() throws MalformedURLException{
         new AboutUsView()
                 .checkingMaciejIsDisplayed()
                 .checkingWojciechIsDisplayed()

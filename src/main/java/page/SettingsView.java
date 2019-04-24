@@ -32,7 +32,7 @@ public class SettingsView extends Page{
     @AndroidFindBy(id = "switch_widget")
     protected MobileElement SWITCH_TOGGLE;
 
-    public SettingsView checkingIfDisableApplicationsColorsIsDisplayed()throws Throwable {
+    public SettingsView checkingIfDisableApplicationsColorsIsDisplayed()throws MalformedURLException {
         Actions.takeScreenshot("Settings opened...");
         assertTrue(APPLICATIONS_COLORS.isDisplayed());
         return this;

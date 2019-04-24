@@ -41,7 +41,7 @@ public class AboutUsView extends Page {
         super();
     }
 
-    public AboutUsView checkingMaciejIsDisplayed() throws Throwable{
+    public AboutUsView checkingMaciejIsDisplayed() throws MalformedURLException{
         Actions.takeScreenshot("About us opened...");
         assertTrue(MACIEJ.isDisplayed());
         return this;
@@ -62,7 +62,7 @@ public class AboutUsView extends Page {
         return this;
     }
 
-    public AboutUsView checkingMariuszIsDisplayed() throws Throwable{
+    public AboutUsView checkingMariuszIsDisplayed() throws MalformedURLException{
         TouchAction action = new TouchAction((getDriver()));
         action.press(element(WOJCIECH)).moveTo(element(MIEJSKI_BIKE_HEADER)).perform();
         Actions.takeScreenshot("About us scrolled...");

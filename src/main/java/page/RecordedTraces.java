@@ -17,7 +17,7 @@ public class RecordedTraces extends Page{
         super();
     }
 
-    public RecordedTraces checkingEmptyDescriptionIsDisplayed () throws Throwable{
+    public RecordedTraces checkingEmptyDescriptionIsDisplayed () throws MalformedURLException{
         Actions.takeScreenshot("Recorded traces clicked...");
         assertTrue(EMPTY_DESCRIPTION.isDisplayed());
         return this;
